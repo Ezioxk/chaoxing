@@ -1,3 +1,4 @@
+import os
 import sys
 
 from loguru import logger
@@ -34,5 +35,6 @@ def tqdm_sink(msg):
 
 
 logger.remove()
-logger.add(tqdm_sink, colorize=True, enqueue=True)
-logger.add("chaoxing.log", rotation="10 MB", level="TRACE")
+if os.environ.get("CHAOXING_GUI_WORKER") != "1":
+    logger.add(tqdm_sink, colorize=True, enqueue=True)
+    logger.add("chaoxing.log", rotation="10 MB", level="TRACE")

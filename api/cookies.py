@@ -36,7 +36,7 @@ def use_cookies() -> dict:
                     if not item:
                         continue
                     parts = item.split("=", 1)
-                    if len(parts) == 2:
+                    if len(parts) == 2 and parts[0]:
                         cookies[parts[0]] = parts[1]
         except Exception:
             return {}

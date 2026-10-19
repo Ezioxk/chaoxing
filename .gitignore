@@ -155,5 +155,7 @@ config*.ini
 .vscode/
 cache.json
 start*.bat
+!start_webui.bat
 .workbuddy/
 myConfig/
+.webui/
